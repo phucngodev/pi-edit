@@ -1,0 +1,40 @@
+{
+"name": "@aboutlo/pi-edit"
+  "version": "0.4.0",
+  "type": "module",
+  "keywords": [
+    "pi-package"
+  ],
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "@mariozechner/pi-coding-agent": "*",
+    "@types/node": "^24.12.0",
+    "eslint": "^9.25.1",
+    "jiti": "^2.4.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.30.1"
+  },
+  "peerDependencies": {
+    "@mariozechner/pi-coding-agent": "*",
+    "@sinclair/typebox": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types --test src/**/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "build": "echo 'no build needed - jiti handles TS'",
+    "release:patch": "pnpm version patch && pnpm publish && git push --follow-tags",
+    "release:minor": "pnpm version minor && pnpm publish && git push --follow-tags",
+    "release:major": "pnpm version major && pnpm publish && git push --follow-tags"
+  }
+}
